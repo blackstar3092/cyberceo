@@ -1,12 +1,631 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My Site</title>
+    <title>CyberCEO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0f1f;
+        --bg-2: #0e152d;
+        --panel: rgba(12, 18, 36, 0.86);
+        --panel-strong: rgba(14, 20, 42, 0.95);
+        --ink: #f4f7ff;
+        --muted: #9fb0d1;
+        --accent: #36f1ff;
+        --accent-2: #7b5bff;
+        --accent-3: #2cffb6;
+        --border: rgba(120, 150, 210, 0.22);
+        --shadow: 0 24px 60px rgba(2, 8, 25, 0.55);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(700px 500px at 15% -10%, rgba(54, 241, 255, 0.18), transparent 60%),
+          radial-gradient(800px 600px at 85% 0%, rgba(123, 91, 255, 0.18), transparent 55%),
+          radial-gradient(900px 700px at 50% 100%, rgba(44, 255, 182, 0.12), transparent 60%),
+          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 24px 96px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent-3));
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .brand h1 {
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+        font-size: 28px;
+        margin: 0;
+        letter-spacing: 0.04em;
+      }
+
+      .brand span {
+        display: block;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        gap: 16px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      nav a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+        transition: color 200ms ease, border-color 200ms ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 32px;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px 0;
+      }
+
+      .hero h2 {
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+        font-size: clamp(34px, 5vw, 52px);
+        margin: 0 0 16px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .hero-card {
+        background: var(--panel-strong);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(14px);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin: 24px 0 0;
+      }
+
+      .stat {
+        background: rgba(22, 30, 58, 0.8);
+        padding: 18px;
+        border-radius: 16px;
+        border: 1px solid rgba(120, 150, 210, 0.18);
+      }
+
+      .stat h3 {
+        margin: 0 0 6px;
+        font-size: 22px;
+      }
+
+      .stat span {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+        margin: 0 0 96px;
+      }
+
+      .section h3 {
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+        font-size: 28px;
+        margin: 0 0 12px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(16px);
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(54, 241, 255, 0.15);
+        color: var(--accent);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 14px;
+      }
+
+      .footer {
+        margin-top: 72px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(120, 150, 210, 0.22);
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .hero,
+      .section {
+        position: relative;
+      }
+
+      .hero::after,
+      .section::after {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        border-radius: 26px;
+        border: 1px dashed rgba(54, 241, 255, 0.12);
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      .glow {
+        position: absolute;
+        inset: -60px;
+        background: radial-gradient(200px 120px at 20% 0%, rgba(54, 241, 255, 0.22), transparent 60%),
+          radial-gradient(240px 140px at 80% 10%, rgba(123, 91, 255, 0.22), transparent 60%);
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.6;
+      }
+
+      .hero > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .scroll-hint {
+        margin-top: 32px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .importance {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 32px;
+        align-items: center;
+        margin: 0 0 96px;
+      }
+
+      .lock {
+        width: 160px;
+        height: 200px;
+        border-radius: 30px;
+        border: 2px solid rgba(255, 88, 88, 0.4);
+        box-shadow: 0 0 30px rgba(255, 88, 88, 0.6), inset 0 0 25px rgba(255, 88, 88, 0.35);
+        position: relative;
+        margin: 0 auto;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 88, 88, 0.25), transparent 60%);
+      }
+
+      .lock::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 88, 88, 0.5);
+        top: -50px;
+        left: 28px;
+        box-shadow: 0 0 20px rgba(255, 88, 88, 0.6);
+      }
+
+      .lock::after {
+        content: "";
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(255, 88, 88, 0.8);
+        top: 84px;
+        left: 62px;
+        box-shadow: 0 0 20px rgba(255, 88, 88, 0.7);
+      }
+
+      .stat-callout {
+        background: var(--panel);
+        border-radius: 20px;
+        padding: 26px;
+        border: 1px solid var(--border);
+      }
+
+      .stat-callout h3 {
+        margin: 0 0 10px;
+        font-size: 30px;
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+      }
+
+      .stat-callout p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .icon-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .icon-card {
+        background: rgba(22, 30, 58, 0.8);
+        border-radius: 16px;
+        padding: 16px;
+        border: 1px solid rgba(120, 150, 210, 0.18);
+        display: grid;
+        gap: 8px;
+        align-items: start;
+      }
+
+      .icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 16px rgba(54, 241, 255, 0.5);
+        animation: pulse 2.6s ease-in-out infinite;
+      }
+
+      .icon-card:nth-child(2) .icon {
+        animation-delay: 0.4s;
+      }
+
+      .icon-card:nth-child(3) .icon {
+        animation-delay: 0.8s;
+      }
+
+      .icon-card:nth-child(4) .icon {
+        animation-delay: 1.2s;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(0.92);
+          box-shadow: 0 0 8px rgba(54, 241, 255, 0.35);
+        }
+        50% {
+          transform: scale(1);
+          box-shadow: 0 0 22px rgba(54, 241, 255, 0.75);
+        }
+        100% {
+          transform: scale(0.92);
+          box-shadow: 0 0 8px rgba(54, 241, 255, 0.35);
+        }
+      }
+
+      .map {
+        position: relative;
+        height: 320px;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        background:
+          radial-gradient(140px 120px at 30% 40%, rgba(54, 241, 255, 0.2), transparent 60%),
+          radial-gradient(160px 120px at 70% 60%, rgba(123, 91, 255, 0.2), transparent 60%),
+          linear-gradient(135deg, rgba(12, 18, 36, 0.95), rgba(10, 15, 31, 0.95));
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .map::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(120, 150, 210, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(120, 150, 210, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.4;
+      }
+
+      .map-label {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: rgba(12, 18, 36, 0.9);
+        border-radius: 14px;
+        padding: 12px 16px;
+        border: 1px solid rgba(120, 150, 210, 0.35);
+        font-size: 14px;
+      }
+
+      .map-pin {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--accent-3);
+        box-shadow: 0 0 14px rgba(44, 255, 182, 0.7);
+      }
+
+      .map-pin.one {
+        top: 55%;
+        left: 48%;
+      }
+
+      .map-pin.two {
+        top: 48%;
+        left: 56%;
+      }
+
+      .summary {
+        display: grid;
+        gap: 18px;
+      }
+
+      .summary h3 {
+        margin: 0;
+      }
+
+      @keyframes floatIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero,
+      .section,
+      header {
+        animation: floatIn 700ms ease both;
+      }
+
+      .section {
+        animation-delay: 120ms;
+      }
+
+      .hero-card,
+      .panel {
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .hero-card:hover,
+      .panel:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 30px 70px rgba(2, 8, 25, 0.7);
+      }
+
+      @media (max-width: 700px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          flex-wrap: wrap;
+        }
+
+        .hero::after,
+        .section::after {
+          inset: -8px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello world</h1>
-    <p>This is my site.</p>
+    <div class="page">
+      <div class="glow" aria-hidden="true"></div>
+      <header>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>CyberCEO</h1>
+            <span>Securing the future</span>
+          </div>
+        </div>
+        <nav>
+          <a href="about.html">About</a>
+          <a href="team.html">Team</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="events.html">Events</a>
+          <a href="collaborations.html">Collaborations</a>
+        </nav>
+      </header>
+
+      <section class="hero" id="vision">
+        <div>
+          <h2>CyberCEO</h2>
+          <p>
+            Outreach nonprofit designed to spread awareness and educate the broader community
+            about cyber and information security. Established in Summer 2023.
+          </p>
+          <div class="scroll-hint">Scroll to explore</div>
+        </div>
+        <div class="hero-card">
+          <div class="tag">Aligned With ICT CTE Pathway</div>
+          <p>
+            We build student leadership while delivering cybersecurity education to schools,
+            families, and senior communities across San Diego County.
+          </p>
+          <div class="stats" id="impact">
+            <div class="stat">
+              <h3>1600+</h3>
+              <span>Students taught</span>
+            </div>
+            <div class="stat">
+              <h3>45+</h3>
+              <span>Staff trained</span>
+            </div>
+            <div class="stat">
+              <h3>800+</h3>
+              <span>Senior citizens reached</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="importance">
+        <div class="lock" aria-hidden="true"></div>
+        <div class="stat-callout">
+          <div class="tag">Why It Matters</div>
+          <h3>1 in 3 people are targeted by cyber scams each year.</h3>
+          <p>
+            CyberCEO equips communities with the awareness and practical steps needed to
+            reduce risk and respond quickly when threats appear.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div class="tag">Vision</div>
+          <h3>Cyber confidence for every community.</h3>
+          <p>
+            We deliver real-world cybersecurity education that is practical, age-appropriate,
+            and designed for long-term resilience in schools and public spaces.
+          </p>
+          <div class="icon-row">
+            <div class="icon-card">
+              <div class="icon" aria-hidden="true"></div>
+              <strong>Awareness</strong>
+              <span class="muted">Build habits that prevent phishing and scams.</span>
+            </div>
+            <div class="icon-card">
+              <div class="icon" aria-hidden="true"></div>
+              <strong>Confidence</strong>
+              <span class="muted">Teach students and families how to act quickly.</span>
+            </div>
+            <div class="icon-card">
+              <div class="icon" aria-hidden="true"></div>
+              <strong>Access</strong>
+              <span class="muted">Make cyber education available to all.</span>
+            </div>
+            <div class="icon-card">
+              <div class="icon" aria-hidden="true"></div>
+              <strong>Leadership</strong>
+              <span class="muted">Grow student leaders who teach others.</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="tag">Impact</div>
+          <h3>Numbers that show our reach.</h3>
+          <div class="stats">
+            <div class="stat">
+              <h3>1600+</h3>
+              <span>Students taught</span>
+            </div>
+            <div class="stat">
+              <h3>45+</h3>
+              <span>Staff trained</span>
+            </div>
+            <div class="stat">
+              <h3>800+</h3>
+              <span>Senior citizens reached</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="region">
+        <div class="panel">
+          <div class="tag">Region Served</div>
+          <h3>San Diego County, California</h3>
+          <p>
+            Programs are delivered across local schools, public libraries, and senior centers,
+            with a focus on community-based learning.
+          </p>
+        </div>
+        <div class="map" aria-hidden="true">
+          <div class="map-label">Primary Service Area</div>
+          <div class="map-pin one"></div>
+          <div class="map-pin two"></div>
+        </div>
+      </section>
+
+      <section class="section" id="curriculum">
+        <div class="panel">
+          <div class="tag">Quick Summary</div>
+          <h3>Curriculum at a glance</h3>
+          <div class="summary">
+            <p>
+              Elementary assemblies use stories, visuals, and Kahoots games to teach cyber basics.
+              Senior sessions focus on scam prevention, device safety, and bingo-based learning.
+            </p>
+            <p>
+              Staff training covers phishing defense and incident response, while high school
+              panels connect students with cybersecurity professionals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        Contact: cyerceo.dnhs@gmail.com · Instagram: @dnhs_cyberceo · Meetings: Mondays in DNHS
+      </div>
+    </div>
   </body>
 </html>
