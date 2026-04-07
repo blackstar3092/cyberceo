@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Team · CyberCEO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0f1f;
+        --bg-2: #0e152d;
+        --panel: rgba(12, 18, 36, 0.86);
+        --panel-strong: rgba(14, 20, 42, 0.95);
+        --ink: #f4f7ff;
+        --muted: #9fb0d1;
+        --accent: #36f1ff;
+        --accent-2: #7b5bff;
+        --accent-3: #2cffb6;
+        --border: rgba(120, 150, 210, 0.22);
+        --shadow: 0 24px 60px rgba(2, 8, 25, 0.55);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(700px 500px at 15% -10%, rgba(54, 241, 255, 0.18), transparent 60%),
+          radial-gradient(800px 600px at 85% 0%, rgba(123, 91, 255, 0.18), transparent 55%),
+          radial-gradient(900px 700px at 50% 100%, rgba(44, 255, 182, 0.12), transparent 60%),
+          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 24px 96px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent-3));
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .brand h1 {
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+        font-size: 28px;
+        margin: 0;
+        letter-spacing: 0.04em;
+      }
+
+      .brand span {
+        display: block;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        gap: 16px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      nav a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+        transition: color 200ms ease, border-color 200ms ease;
+      }
+
+      nav a:hover,
+      nav a[aria-current="page"] {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .team-hero {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 56px;
+      }
+
+      .team-hero h2 {
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+        font-size: clamp(34px, 5vw, 52px);
+        margin: 0 0 16px;
+      }
+
+      .team-hero p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--muted);
+        max-width: 720px;
+      }
+
+      .hero-card {
+        background: var(--panel-strong);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(14px);
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(54, 241, 255, 0.15);
+        color: var(--accent);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 14px;
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+        margin-bottom: 64px;
+      }
+
+      .section h3 {
+        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
+        font-size: 26px;
+        margin: 0 0 12px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(16px);
+      }
+
+      .flip-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: 18px;
+      }
+
+      .flip-card {
+        perspective: 1200px;
+      }
+
+      .flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        transition: transform 600ms ease;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-inner,
+      .flip-card:focus-within .flip-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-front,
+      .flip-back {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        border-radius: 16px;
+        padding: 16px;
+        background: rgba(22, 30, 58, 0.85);
+        border: 1px solid rgba(120, 150, 210, 0.18);
+        display: grid;
+        gap: 8px;
+        align-content: start;
+      }
+
+      .flip-back {
+        transform: rotateY(180deg);
+      }
+
+      .photo {
+        height: 140px;
+        border-radius: 12px;
+        background:
+          linear-gradient(135deg, rgba(54, 241, 255, 0.2), rgba(123, 91, 255, 0.2)),
+          radial-gradient(circle at 30% 20%, rgba(44, 255, 182, 0.35), transparent 60%);
+        border: 1px solid rgba(120, 150, 210, 0.25);
+        position: relative;
+      }
+
+      .photo::after {
+        content: "Photo";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .flip-front h4,
+      .flip-back h4 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .flip-front p,
+      .flip-back p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .diagram {
+        margin-top: 24px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(120, 150, 210, 0.25);
+      }
+
+      .diagram img {
+        width: 100%;
+        display: block;
+      }
+
+      .footer {
+        margin-top: 72px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(120, 150, 210, 0.22);
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 700px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          flex-wrap: wrap;
+        }
+
+        .flip-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .flip-grid {
+          grid-template-columns: repeat(2, minmax(220px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>CyberCEO</h1>
+            <span>Securing the future</span>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="team.html" aria-current="page">Team</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="events.html">Events</a>
+          <a href="collaborations.html">Collaborations</a>
+        </nav>
+      </header>
+
+      <section class="team-hero">
+        <div>
+          <h2>Team</h2>
+          <p>
+            CyberCEO is powered by DNHS student leaders and an advisor team. We work across
+            Curriculum, Instructional, and Marketing subteams to deliver consistent, high-impact
+            programming.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="tag">Team Details</div>
+          <p>
+            Current enrollment: 25 DNHS students with approximately 10 to 11 active at each
+            meeting. Weekly meetings are held at Del Norte High School with summer meetings online.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div class="tag">Leadership</div>
+          <h3>Leadership team</h3>
+          <div class="flip-grid">
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="photo" aria-hidden="true"></div>
+                  <h4>Risha Guha</h4>
+                  <p>Cofounder, President, Director of Curriculum</p>
+                </div>
+                <div class="flip-back">
+                  <h4>About Risha</h4>
+                  <p>
+                    Placeholder bio: Leads curriculum strategy and ensures every lesson is
+                    engaging, practical, and aligned with the ICT CTE pathway.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="photo" aria-hidden="true"></div>
+                  <h4>Yash Parikh</h4>
+                  <p>VP, Director of Outreach</p>
+                </div>
+                <div class="flip-back">
+                  <h4>About Yash</h4>
+                  <p>
+                    Placeholder bio: Builds partnerships with schools and community centers to
+                    expand CyberCEO workshops and events.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="photo" aria-hidden="true"></div>
+                  <h4>Anvay Vahia</h4>
+                  <p>Director of Finance</p>
+                </div>
+                <div class="flip-back">
+                  <h4>About Anvay</h4>
+                  <p>
+                    Placeholder bio: Oversees fundraising strategy, budgeting, and financial
+                    planning for programs and events.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="photo" aria-hidden="true"></div>
+                  <h4>Adya Shipekar</h4>
+                  <p>Secretary</p>
+                </div>
+                <div class="flip-back">
+                  <h4>About Adya</h4>
+                  <p>
+                    Placeholder bio: Coordinates meeting notes, scheduling, and internal
+                    communications across subteams.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="photo" aria-hidden="true"></div>
+                  <h4>Siddharth Hota</h4>
+                  <p>Outreach Representative</p>
+                </div>
+                <div class="flip-back">
+                  <h4>About Siddharth</h4>
+                  <p>
+                    Placeholder bio: Supports community outreach, volunteer recruitment, and
+                    on-site workshop delivery.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="photo" aria-hidden="true"></div>
+                  <h4>Ethan Zhao</h4>
+                  <p>Cofounder</p>
+                </div>
+                <div class="flip-back">
+                  <h4>About Ethan</h4>
+                  <p>
+                    Placeholder bio: Guides strategic direction and helps scale the CyberCEO
+                    initiative across partner organizations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div class="tag">Team Structure</div>
+          <h3>How our organization is built</h3>
+          <div class="diagram">
+            <img src="assets/team-structure.png" alt="CyberCEO team structure diagram">
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        Contact: cyberceo.dnhs@gmail.com · Instagram: @dnhs_cyberceo · Meetings: Mondays in DNHS
+      </div>
+    </div>
+  </body>
+</html>
