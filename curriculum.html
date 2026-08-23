@@ -1,336 +1,329 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Curriculum · CyberCEO</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg: #0a0f1f;
-        --bg-2: #0e152d;
-        --panel: rgba(12, 18, 36, 0.86);
-        --panel-strong: rgba(14, 20, 42, 0.95);
-        --ink: #f4f7ff;
-        --muted: #9fb0d1;
-        --accent: #36f1ff;
-        --accent-2: #7b5bff;
-        --accent-3: #2cffb6;
-        --border: rgba(120, 150, 210, 0.22);
-        --shadow: 0 24px 60px rgba(2, 8, 25, 0.55);
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum · CyberCEO</title>
+<meta name="description" content="What CyberCEO teaches: the elementary Intro to Cybersecurity assembly, senior residence staff training, and the high school expert panel. Try two of the activities yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-      * {
-        box-sizing: border-box;
-      }
+<div class="page">
 
-      body {
-        margin: 0;
-        font-family: "IBM Plex Sans", system-ui, sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(700px 500px at 15% -10%, rgba(54, 241, 255, 0.18), transparent 60%),
-          radial-gradient(800px 600px at 85% 0%, rgba(123, 91, 255, 0.18), transparent 55%),
-          radial-gradient(900px 700px at 50% 100%, rgba(44, 255, 182, 0.12), transparent 60%),
-          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
-        min-height: 100vh;
-      }
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 40 40" fill="none" style="color:var(--brand)" aria-hidden="true">
+        <path d="M12 17v-4a8 8 0 0 1 16 0v4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <rect x="7.5" y="17" width="25" height="17" rx="4.5" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M13.5 30.5a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+        <circle cx="20" cy="24" r="2.6" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      <span>
+        <span class="brand-name">CyberCEO</span>
+        <span class="brand-tag">Securing the future</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="curriculum.html" aria-current="page">Curriculum</a>
+      <a href="events.html">Events</a>
+      <a href="collaborations.html">Collaborations</a>
+    </nav>
+  </header>
 
-      .page {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 48px 24px 96px;
-      }
+  <main id="main">
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 24px;
-        margin-bottom: 56px;
-      }
+    <section class="reveal">
+      <p class="eyebrow">Curriculum</p>
+      <h1 class="h-xl">Two of our activities, playable right&nbsp;here.</h1>
+      <p class="lead">
+        Everything below comes out of the decks we actually teach. The password lab and the
+        phishing hunt are the two moments that get the loudest reaction in a room of fourth
+        graders — try them, then read how the rest of the lesson is built.
+      </p>
+    </section>
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
+    <!-- ============ PASSWORD LAB ============ -->
+    <section class="reveal">
+      <p class="eyebrow">Activity 01 · Elementary &amp; seniors</p>
+      <h2 class="h-lg">The password lab</h2>
+      <p class="lead">
+        We teach that strong passwords are <strong>CLOUDS</strong>. Type something in and
+        watch the six checks light up. The crack time assumes an attacker guessing four
+        billion times a second — the same number we use in the assembly.
+      </p>
 
-      .logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent-3));
-        box-shadow: var(--shadow);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .logo::after {
-        content: "";
-        position: absolute;
-        inset: 2px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-      }
-
-      .brand h1 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 28px;
-        margin: 0;
-        letter-spacing: 0.04em;
-      }
-
-      .brand span {
-        display: block;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--muted);
-      }
-
-      nav {
-        display: flex;
-        gap: 16px;
-        font-size: 14px;
-        color: var(--muted);
-      }
-
-      nav a {
-        color: inherit;
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
-        padding-bottom: 4px;
-        transition: color 200ms ease, border-color 200ms ease;
-      }
-
-      nav a:hover,
-      nav a[aria-current="page"] {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 32px;
-        align-items: center;
-        margin-bottom: 72px;
-      }
-
-      .hero h2 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: clamp(34px, 5vw, 52px);
-        margin: 0 0 16px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-
-      .hero-card {
-        background: var(--panel-strong);
-        border-radius: 22px;
-        padding: 28px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(14px);
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: rgba(54, 241, 255, 0.15);
-        color: var(--accent);
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 14px;
-      }
-
-      .section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 28px;
-        margin-bottom: 64px;
-      }
-
-      .section h3 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 26px;
-        margin: 0 0 12px;
-      }
-
-      .panel {
-        background: var(--panel);
-        border-radius: 20px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(16px);
-      }
-
-      .list {
-        display: grid;
-        gap: 12px;
-      }
-
-      .list-item {
-        background: rgba(22, 30, 58, 0.75);
-        border-radius: 16px;
-        padding: 14px 16px;
-        border: 1px solid rgba(120, 150, 210, 0.15);
-      }
-
-      .list-item h4 {
-        margin: 0 0 6px;
-        font-size: 17px;
-      }
-
-      .list-item p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .footer {
-        margin-top: 72px;
-        padding-top: 32px;
-        border-top: 1px solid rgba(120, 150, 210, 0.22);
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      @media (max-width: 700px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav {
-          flex-wrap: wrap;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <header>
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <h1>CyberCEO</h1>
-            <span>Securing the future</span>
-          </div>
+      <div class="card lab">
+        <div class="pw-input-wrap">
+          <label class="eyebrow" for="pw-input" style="display:block">Try a password</label>
+          <input class="pw-input" id="pw-input" type="text" autocomplete="off" autocapitalize="off"
+                 spellcheck="false" placeholder="start typing…"
+                 aria-describedby="pw-privacy">
         </div>
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="team.html">Team</a>
-          <a href="curriculum.html" aria-current="page">Curriculum</a>
-          <a href="events.html">Events</a>
-          <a href="collaborations.html">Collaborations</a>
-        </nav>
-      </header>
 
-      <section class="hero">
-        <div>
-          <h2>Cyber learning that adapts to every audience.</h2>
-          <p>
-            CyberCEO builds curriculum for elementary students, senior citizens, and staff
-            audiences, blending foundational safety topics with interactive activities.
-          </p>
+        <div class="meter" role="img" aria-label="Password strength meter">
+          <div class="meter-fill" id="pw-fill"></div>
         </div>
-        <div class="hero-card">
-          <div class="tag">Curriculum Pillars</div>
-          <p>
-            Core themes: password safety, phishing awareness, data privacy, device protection,
-            digital citizenship, and incident response basics.
-          </p>
-        </div>
-      </section>
 
-      <section class="section">
-        <div class="panel">
-          <div class="tag">Elementary Assembly</div>
-          <h3>Interactive, high-energy sessions</h3>
-          <div class="list">
-            <div class="list-item">
-              <h4>Intro to Cybersecurity</h4>
-              <p>
-                Fast-paced assembly that introduces cyber concepts through stories, visuals,
-                and live demos.
-              </p>
-            </div>
-            <div class="list-item">
-              <h4>Kahoot! Knowledge Checks</h4>
-              <p>
-                Competitive Kahoots games reinforce safe password habits and phishing awareness.
-              </p>
-            </div>
-            <div class="list-item">
-              <h4>Safe Online Behavior</h4>
-              <p>
-                Age-appropriate digital citizenship and how to ask for help when something
-                feels wrong online.
-              </p>
-            </div>
-          </div>
+        <div class="pw-readout">
+          <span class="eyebrow" style="margin:0">Time to crack</span>
+          <span class="pw-time" id="pw-time" aria-live="polite">—</span>
+          <span class="pw-verdict" id="pw-verdict">Waiting</span>
         </div>
-        <div class="panel">
-          <div class="tag">Senior Curriculum</div>
-          <h3>Patient, practical, and supportive</h3>
-          <div class="list">
-            <div class="list-item">
-              <h4>Scam Defense Basics</h4>
-              <p>
-                Recognizing phishing emails, text scams, and phone fraud with real examples.
-              </p>
-            </div>
-            <div class="list-item">
-              <h4>Bingo for Cyber Safety</h4>
-              <p>
-                A bingo-style learning activity designed for seniors to reinforce key takeaways.
-              </p>
-            </div>
-            <div class="list-item">
-              <h4>Everyday Device Help</h4>
-              <p>
-                Step-by-step guidance on updates, account recovery, and privacy settings.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="section">
-        <div class="panel">
-          <div class="tag">Staff Training</div>
-          <h3>Supporting educators and administrators</h3>
-          <p>
-            Staff workshops focus on phishing prevention, secure document handling, and
-            response playbooks for common incidents. Materials are aligned with district needs.
-          </p>
+        <div class="clouds">
+          <div class="cloud" data-cloud="c"><span class="mark">·</span><span class="letter">Complex</span><span>Mixes upper case, lower case, numbers, and symbols.</span></div>
+          <div class="cloud" data-cloud="l"><span class="mark">·</span><span class="letter">Lengthy</span><span>At least 10 characters. A 6-character password falls in about three minutes.</span></div>
+          <div class="cloud" data-cloud="o"><span class="mark">·</span><span class="letter">Only yours</span><span>Not your name, your birthday, or anything guessable from your profile.</span></div>
+          <div class="cloud" data-cloud="u"><span class="mark">·</span><span class="letter">Unique</span><span>Not on the common-password lists. 91% of people pick from the top 1,000.</span></div>
+          <div class="cloud" data-cloud="d"><span class="mark">·</span><span class="letter">Different</span><span>A different password for every site, so one breach isn't all of them.</span></div>
+          <div class="cloud" data-cloud="s"><span class="mark">·</span><span class="letter">Short term</span><span>Changed every few months, and immediately after any breach.</span></div>
         </div>
-        <div class="panel">
-          <div class="tag">High School Panel</div>
-          <h3>Career and applied learning</h3>
-          <p>
-            Panels connect students with cybersecurity professionals across industry, higher
-            education, and public service to explore pathways and real-world challenges.
-          </p>
-        </div>
-      </section>
 
-      <div class="footer">
-        Contact: cyerceo.dnhs@gmail.com · Instagram: @dnhs_cyberceo · Meetings: Mondays in DNHS
+        <label class="small dim" style="display:flex;gap:9px;align-items:center;margin-top:16px;cursor:pointer">
+          <input type="checkbox" id="pw-reused"> I use this password somewhere else too
+        </label>
+
+        <div class="btn-row" style="margin-top:20px">
+          <button class="btn btn-ghost" id="pw-demo" type="button">Watch 1234 become unbreakable</button>
+        </div>
+
+        <p class="small" id="pw-privacy" style="margin-top:18px;color:var(--text-faint)">
+          This runs entirely in your browser. Nothing you type is sent anywhere or saved.
+          Still — don't paste in a password you actually use. Habits matter more than tools.
+        </p>
       </div>
+    </section>
+
+    <!-- ============ PHISH HUNT ============ -->
+    <section class="reveal">
+      <p class="eyebrow signal">Activity 02 · Elementary &amp; seniors</p>
+      <h2 class="h-lg">Spot the phish</h2>
+      <p class="lead">
+        This is the message we put on screen mid-assembly. There are five things wrong with
+        it. Tap each one you can find.
+      </p>
+
+      <div id="phish-hunt">
+        <div class="inbox">
+          <div class="inbox-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span style="margin-left:8px">New message</span>
+          </div>
+          <div class="inbox-body">
+            <div class="mail-row">
+              <span class="k">From</span>
+              <span>
+                <button class="flag" aria-pressed="false"
+                        data-explain="Spoofed sender: the address reads 1nfoSupport, with a digit 1 in place of the letter i. Real Roblox mail doesn't come from there.">1nfoSupport@Roblox.com</button>
+                <span class="dim"> (Roblox Support)</span>
+              </span>
+            </div>
+            <div class="mail-row">
+              <span class="k">To</span>
+              <span class="dim">samskibidi@gmail.com (Sam Skibidi)</span>
+            </div>
+            <div class="mail-row">
+              <span class="k">Subject</span>
+              <span>
+                <button class="flag" aria-pressed="false"
+                        data-explain="Shouting in all caps with a wall of exclamation marks. Real companies don't write like this — panic and excitement are the point.">🎉 FREE ROBLOX!!! CLAIM NOW!!! 🤑🤑</button>
+              </span>
+            </div>
+            <div class="mail-body" style="margin-top:8px">
+              <p class="shout">
+                <button class="flag" aria-pressed="false"
+                        data-explain="Too good to be true. Nobody hands out free currency to a random inbox. If the offer feels like winning a prize you never entered, it is bait.">WINNER WINNER CHICKEN DINNER!!!!!</button>
+              </p>
+              <p>
+                CLICK NOW TO CLAIM!!!<br>
+                <button class="flag" aria-pressed="false"
+                        data-explain="Look closely at the link: rob1ox.co, not roblox.com. A digit swapped into the domain and a different ending. Always read the address before you click.">http://www.rob1ox.co/claim_gift_now</button>
+              </p>
+              <p class="small">
+                <button class="flag" aria-pressed="false"
+                        data-explain="It asks for personal information. No legitimate service needs your password, and none of them ever need your credit card to give you something free.">Username, password, and credit card info required to claim.</button>
+                Terms and conditions apply.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hunt-status">
+          <span class="hunt-count" id="hunt-count" aria-live="polite">0 of 5 red flags found</span>
+          <button class="btn btn-ghost" id="hunt-reset" type="button">Start over</button>
+        </div>
+
+        <ul class="hunt-log" id="hunt-log"></ul>
+
+        <div class="hunt-win" id="hunt-win" hidden>
+          <strong>That's all five.</strong> Too good to be true, all caps, a lookalike link,
+          a request for personal info, and a spoofed sender. Any one of them is enough to
+          delete the message — you don't need to find all five to be safe.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ELEMENTARY ============ -->
+    <section id="elementary" class="reveal">
+      <p class="eyebrow">Elementary assembly</p>
+      <h2 class="h-lg">Intro to Cybersecurity</h2>
+      <p class="lead">
+        Written for fourth and fifth graders and delivered as a full-class assembly. The
+        run of show alternates explanation and competition — no segment runs long enough
+        for a ten-year-old to check out.
+      </p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="h-md">Run of show</h3>
+          <dl class="deflist">
+            <div class="defrow"><dt>01 What &amp; why</dt><dd>Cybersecurity defined, then WannaCry, the CrowdStrike outage, and Stuxnet as proof it's not abstract.</dd></div>
+            <div class="defrow"><dt>02 Passwords</dt><dd>The CLOUDS rule, then rebuilding <span style="font-family:var(--font-mono)">1234</span> into something that takes centuries.</dd></div>
+            <div class="defrow"><dt>03 Password game</dt><dd>One student per class spins a wheel, draws cards, and builds a password. Longest crack time wins.</dd></div>
+            <div class="defrow"><dt>04 CIA triad</dt><dd>Confidentiality, integrity, availability — the three things security is actually protecting.</dd></div>
+            <div class="defrow"><dt>05 How computers work</dt><dd>Input, storage, memory, software, output. Plus a tour of Windows, macOS, and Linux.</dd></div>
+            <div class="defrow"><dt>06 Threat vocabulary</dt><dd>Threat, vulnerability, exploit, risk — and how they fit together.</dd></div>
+            <div class="defrow"><dt>07 Social engineering</dt><dd>Phishing, spear-phishing, vishing, smishing, and the live phish hunt above.</dd></div>
+            <div class="defrow"><dt>08 Malware</dt><dd>Viruses, worms, trojans, keyloggers, botnets, backdoors, logic bombs, and what antivirus does.</dd></div>
+            <div class="defrow"><dt>09 ABCyber</dt><dd>Whole-class game: spin a letter, name a cyber term starting with it, explain what it means.</dd></div>
+            <div class="defrow"><dt>10 Cipher busters</dt><dd>Decode a Morse message to close out.</dd></div>
+          </dl>
+        </div>
+
+        <div>
+          <div class="card" style="margin-bottom:20px">
+            <h3 class="h-md">Malware, in kid-sized definitions</h3>
+            <dl class="deflist">
+              <div class="defrow"><dt>Virus / worm</dt><dd>Infects and spreads, with or without a human helping it along.</dd></div>
+              <div class="defrow"><dt>Trojan horse</dt><dd>A program with a hidden malicious function.</dd></div>
+              <div class="defrow"><dt>Keylogger</dt><dd>Records what you type to steal passwords and personal info.</dd></div>
+              <div class="defrow"><dt>Botnet</dt><dd>Compromised computers under someone else's control.</dd></div>
+              <div class="defrow"><dt>Backdoor</dt><dd>A way into a program that skips the normal security checks.</dd></div>
+              <div class="defrow"><dt>Logic bomb</dt><dd>Malware that waits, dormant, until a specific condition is met.</dd></div>
+            </dl>
+          </div>
+          <div class="card">
+            <h3 class="h-md">Booking one</h3>
+            <p class="dim small">
+              An assembly fits a standard class period and works for a single class or a
+              full grade level. We supply slides, the wheel, the cards, and student
+              presenters. Schools need a projector and sound.
+            </p>
+            <p class="small" style="margin-top:14px"><a href="mailto:cyberceo.dnhs@gmail.com?subject=Elementary%20assembly%20request">Request an assembly →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SENIORS ============ -->
+    <section id="seniors" class="split reveal">
+      <div>
+        <p class="eyebrow">Senior residences</p>
+        <h2 class="h-lg">Train the staff, reach the residents.</h2>
+        <p class="lead">
+          We're high schoolers with a Monday meeting — we can't be at a senior residence
+          every week. So the program is built to outlast our visit.
+        </p>
+        <p class="dim">
+          We run an Intro to Cybersecurity workshop adapted for staff who support senior
+          residents, and leave behind a <strong>Teaching Cyber Safety Instructional
+          Guide</strong> written so a caregiver can walk a resident through a scam call or
+          a suspicious text without needing us in the room. That's how 45 trained staff
+          turn into more than 800 residents reached.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="h-md">What the guide covers</h3>
+        <dl class="deflist">
+          <div class="defrow"><dt>Scam defense</dt><dd>Recognizing phishing emails, text scams, and phone fraud with real examples.</dd></div>
+          <div class="defrow"><dt>Passwords</dt><dd>The same CLOUDS rule, paced for people who'd rather write it down than memorize it.</dd></div>
+          <div class="defrow"><dt>Device help</dt><dd>Updates, account recovery, and privacy settings, step by step.</dd></div>
+          <div class="defrow"><dt>What to do next</dt><dd>Who to call, what to freeze, and how to report it after something goes wrong.</dd></div>
+        </dl>
+        <p class="small dim" style="margin-top:18px">
+          Coming this year: a dedicated digital literacy curriculum alongside cyber safety,
+          plus booths and short sessions at senior community events.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ HIGH SCHOOL ============ -->
+    <section class="reveal">
+      <p class="eyebrow">High school</p>
+      <h2 class="h-lg">Cybersecurity Expert Panel</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <p class="eyebrow">Segment 01</p>
+          <h3 class="h-md">Cybersecurity landscape</h3>
+          <p class="dim small">Real-world threats, and what actually lands in a working analyst's inbox.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Segment 02</p>
+          <h3 class="h-md">Career opportunities</h3>
+          <p class="dim small">Roles, certifications, degrees, and the routes that skip the degree entirely.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Segment 03</p>
+          <h3 class="h-md">Future of cybersecurity</h3>
+          <p class="dim small">Where the field is heading, and which skills hold their value.</p>
+        </div>
+      </div>
+      <p class="small" style="margin-top:20px"><a href="collaborations.html">Meet the panelists →</a></p>
+    </section>
+
+    <section class="card reveal">
+      <p class="eyebrow">Credits</p>
+      <h2 class="h-md">Where the material comes from</h2>
+      <p class="dim small">
+        Our elementary curriculum draws on materials from CyberPatriot and the Air Force
+        Association, adapted and rewritten for a younger audience by the CyberCEO
+        curriculum subteam. The password and phishing activities on this page are our own.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <h5>CyberCEO</h5>
+      <p class="small dim">Student-led cybersecurity outreach, based at Del Norte High School and aligned with the Information and Communication Technology CTE pathway.</p>
     </div>
-  </body>
+    <div>
+      <h5>Explore</h5>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="events.html">Events</a>
+      <a href="collaborations.html">Collaborations</a>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <a href="mailto:cyberceo.dnhs@gmail.com">cyberceo.dnhs@gmail.com</a>
+      <a href="https://www.instagram.com/dnhs_cyberceo/" rel="noopener">Instagram · @dnhs_cyberceo</a>
+      <a href="https://www.linkedin.com/" rel="noopener">LinkedIn · CyberCEO</a>
+    </div>
+    <div>
+      <h5>Meetings</h5>
+      <p class="small dim">Mondays at Del Norte High School during the school year. Online over the summer.</p>
+    </div>
+    <div class="colophon">
+      <span>© 2026 CyberCEO · cyberceo.us</span>
+      <span>Advisor: Mr. Mortensen</span>
+    </div>
+  </footer>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
 </html>

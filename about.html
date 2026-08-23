@@ -1,406 +1,259 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>About · CyberCEO</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg: #0a0f1f;
-        --bg-2: #0e152d;
-        --panel: rgba(12, 18, 36, 0.86);
-        --panel-strong: rgba(14, 20, 42, 0.95);
-        --ink: #f4f7ff;
-        --muted: #9fb0d1;
-        --accent: #36f1ff;
-        --accent-2: #7b5bff;
-        --accent-3: #2cffb6;
-        --border: rgba(120, 150, 210, 0.22);
-        --shadow: 0 24px 60px rgba(2, 8, 25, 0.55);
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · CyberCEO</title>
+<meta name="description" content="How CyberCEO started, what we're trying to do, and where the organization is heading in 2025/26.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-      * {
-        box-sizing: border-box;
-      }
+<div class="page">
 
-      body {
-        margin: 0;
-        font-family: "IBM Plex Sans", system-ui, sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(700px 500px at 15% -10%, rgba(54, 241, 255, 0.18), transparent 60%),
-          radial-gradient(800px 600px at 85% 0%, rgba(123, 91, 255, 0.18), transparent 55%),
-          radial-gradient(900px 700px at 50% 100%, rgba(44, 255, 182, 0.12), transparent 60%),
-          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
-        min-height: 100vh;
-      }
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 40 40" fill="none" style="color:var(--brand)" aria-hidden="true">
+        <path d="M12 17v-4a8 8 0 0 1 16 0v4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <rect x="7.5" y="17" width="25" height="17" rx="4.5" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M13.5 30.5a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+        <circle cx="20" cy="24" r="2.6" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      <span>
+        <span class="brand-name">CyberCEO</span>
+        <span class="brand-tag">Securing the future</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="team.html">Team</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="events.html">Events</a>
+      <a href="collaborations.html">Collaborations</a>
+    </nav>
+  </header>
 
-      .page {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 48px 24px 96px;
-      }
+  <main id="main">
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 24px;
-        margin-bottom: 56px;
-      }
+    <section class="reveal">
+      <p class="eyebrow">About</p>
+      <h1 class="h-xl">A club that turned into an&nbsp;obligation.</h1>
+      <p class="lead">
+        CyberCEO started in Summer 2023 as a handful of Del Norte students who thought
+        cybersecurity was interesting and noticed nobody was teaching it to the people
+        most likely to get hit. Three years later we're still students — and there are
+        now more than two thousand people who've sat through one of our workshops.
+      </p>
+    </section>
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent-3));
-        box-shadow: var(--shadow);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .logo::after {
-        content: "";
-        position: absolute;
-        inset: 2px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-      }
-
-      .brand h1 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 28px;
-        margin: 0;
-        letter-spacing: 0.04em;
-      }
-
-      .brand span {
-        display: block;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--muted);
-      }
-
-      nav {
-        display: flex;
-        gap: 16px;
-        font-size: 14px;
-        color: var(--muted);
-      }
-
-      nav a {
-        color: inherit;
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
-        padding-bottom: 4px;
-        transition: color 200ms ease, border-color 200ms ease;
-      }
-
-      nav a:hover,
-      nav a[aria-current="page"] {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 32px;
-        align-items: center;
-        margin-bottom: 72px;
-      }
-
-      .hero h2 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: clamp(34px, 5vw, 52px);
-        margin: 0 0 16px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-
-      .hero-card {
-        background: var(--panel-strong);
-        border-radius: 22px;
-        padding: 28px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(14px);
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: rgba(54, 241, 255, 0.15);
-        color: var(--accent);
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 14px;
-      }
-
-      .section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 28px;
-        margin-bottom: 64px;
-      }
-
-      .section h3 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 26px;
-        margin: 0 0 12px;
-      }
-
-      .panel {
-        background: var(--panel);
-        border-radius: 20px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(16px);
-      }
-
-      .timeline-wrap {
-        position: relative;
-        margin: 16px 0 96px;
-      }
-
-      .timeline-wrap::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        transform: translateX(-50%);
-        background: linear-gradient(180deg, rgba(54, 241, 255, 0.8), rgba(123, 91, 255, 0.3));
-        box-shadow: 0 0 18px rgba(54, 241, 255, 0.4);
-      }
-
-      .timeline-item {
-        position: relative;
-        width: calc(50% - 32px);
-        margin-bottom: 28px;
-        padding: 18px 20px;
-        background: rgba(22, 30, 58, 0.75);
-        border-radius: 16px;
-        border: 1px solid rgba(120, 150, 210, 0.18);
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        top: 24px;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--accent-3);
-        box-shadow: 0 0 16px rgba(44, 255, 182, 0.8);
-      }
-
-      .timeline-item:nth-child(odd) {
-        margin-left: 0;
-        margin-right: auto;
-        padding-right: 28px;
-      }
-
-      .timeline-item:nth-child(odd)::before {
-        right: -39px;
-      }
-
-      .timeline-item:nth-child(even) {
-        margin-left: auto;
-        margin-right: 0;
-        padding-left: 28px;
-      }
-
-      .timeline-item:nth-child(even)::before {
-        left: -39px;
-      }
-
-      .timeline-item h4 {
-        margin: 0 0 6px;
-        font-size: 18px;
-      }
-
-      .timeline-item p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .goals {
-        background: linear-gradient(135deg, rgba(54, 241, 255, 0.16), rgba(123, 91, 255, 0.18));
-        border-radius: 24px;
-        padding: 28px;
-        border: 1px solid rgba(120, 150, 210, 0.3);
-        box-shadow: var(--shadow);
-      }
-
-      .goals h3 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 30px;
-        margin: 0 0 12px;
-      }
-
-      .goals p {
-        margin: 0 0 12px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .footer {
-        margin-top: 72px;
-        padding-top: 32px;
-        border-top: 1px solid rgba(120, 150, 210, 0.22);
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      @media (max-width: 700px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav {
-          flex-wrap: wrap;
-        }
-
-        .timeline-wrap::before {
-          left: 12px;
-          transform: none;
-        }
-
-        .timeline-item {
-          width: calc(100% - 24px);
-          margin-left: 24px;
-          margin-right: 0;
-        }
-
-        .timeline-item:nth-child(even),
-        .timeline-item:nth-child(odd) {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-
-        .timeline-item::before {
-          left: -31px;
-          right: auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <header>
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <h1>CyberCEO</h1>
-            <span>Securing the future</span>
-          </div>
-        </div>
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="about.html" aria-current="page">About</a>
-          <a href="team.html">Team</a>
-          <a href="curriculum.html">Curriculum</a>
-          <a href="events.html">Events</a>
-          <a href="collaborations.html">Collaborations</a>
-        </nav>
-      </header>
-
-      <section class="hero">
-        <div>
-          <h2>History, mission, and the measurable arc of CyberCEO.</h2>
-          <p>
-            CyberCEO is an outreach nonprofit established in Summer 2023 to educate the broader
-            community about cyber and information security. We are aligned with the Information
-            and Communication Technology CTE pathway and focus on building digital resilience.
-          </p>
-        </div>
-        <div class="hero-card">
-          <div class="tag">Mission</div>
-          <p>
-            Deliver practical, engaging cybersecurity education to students, staff, and senior
-            communities while building a pathway for high school leaders to serve.
-          </p>
-          <div class="tag" style="margin-top: 16px;">Vision</div>
-          <p>
-            A future where every local school and community center has the knowledge to stay safe
-            online and the confidence to respond to cyber threats.
-          </p>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="tag">Timeline</div>
-        <h3>Year-by-year milestones</h3>
-        <div class="timeline-wrap">
-          <div class="timeline-item">
-            <h4>2023 · Launch Year</h4>
-            <p>
-              Established CyberCEO, assembled the student leadership team, and built the first
-              Intro to Cybersecurity workshop for elementary and senior audiences.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <h4>2024 · Expansion Year</h4>
-            <p>
-              Scaled workshops to multiple elementary campuses and launched public library
-              sessions. Expanded training for staff and seniors.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <h4>2025 · Community Impact Year</h4>
-            <p>
-              Delivered 1350+ student sessions, 45+ staff trainings, and reached 800+ senior
-              citizens through targeted outreach.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <h4>2026 · Growth &amp; Partnerships</h4>
-            <p>
-              Expanded programming to 1600+ students, maintained staff and senior training impact,
-              and planned new library and high school initiatives.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="goals">
-        <div class="tag">Goals Ahead</div>
-        <h3>Next-stage growth for CyberCEO</h3>
-        <p>
-          Scale curriculum across additional campuses and publish a public toolkit for staff
-          training that local schools can adopt independently.
+    <section class="grid grid-2 reveal">
+      <div class="card">
+        <p class="eyebrow">Mission</p>
+        <h2 class="h-md">Spread awareness and educate the broader community about cyber and information security.</h2>
+        <p class="dim small">
+          Not a slogan — it's the sentence we test every new program against. If a lesson
+          doesn't change what someone does the next time they get a suspicious text, it
+          isn't ready.
         </p>
-        <p>
-          Formalize a mentorship track for student instructors and strengthen partnerships with
-          school districts, public libraries, and cybersecurity industry leaders.
-        </p>
-      </section>
-
-      <div class="footer">
-        Contact: cyerceo.dnhs@gmail.com · Instagram: @dnhs_cyberceo · Meetings: Mondays in DNHS
       </div>
+      <div class="card">
+        <p class="eyebrow">Vision</p>
+        <h2 class="h-md">Every school and community center in the county has someone who knows what to do.</h2>
+        <p class="dim small">
+          We can't be in every room. So we train the adults who already are — teachers,
+          library staff, senior residence caregivers — and hand them materials they can
+          keep using without us.
+        </p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <p class="eyebrow">How we're set up</p>
+      <h2 class="h-lg">The basics, in plain terms.</h2>
+      <dl class="deflist">
+        <div class="defrow">
+          <dt>Founded</dt>
+          <dd>Summer 2023, at Del Norte High School in San Diego.</dd>
+        </div>
+        <div class="defrow">
+          <dt>Advisor</dt>
+          <dd>Mr. Mortensen, Del Norte High School.</dd>
+        </div>
+        <div class="defrow">
+          <dt>Pathway</dt>
+          <dd>Aligned with the Information and Communication Technology CTE pathway.</dd>
+        </div>
+        <div class="defrow">
+          <dt>Members</dt>
+          <dd>25 enrolled DNHS students, with roughly 10&ndash;11 active at any given meeting.</dd>
+        </div>
+        <div class="defrow">
+          <dt>Subteams</dt>
+          <dd>Curriculum, Instructional, and Marketing.</dd>
+        </div>
+        <div class="defrow">
+          <dt>Meetings</dt>
+          <dd>Mondays at Del Norte during the school year; online through the summer.</dd>
+        </div>
+        <div class="defrow">
+          <dt>Cost to partners</dt>
+          <dd>Free. We bring the slides, the games, and the handouts.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="split reveal">
+      <div>
+        <p class="eyebrow">Timeline</p>
+        <h2 class="h-lg">How we got here.</h2>
+        <p class="lead">
+          Each phase added an audience we hadn't figured out how to reach yet.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-year">Summer 2023</span>
+          <h4>Founded</h4>
+          <p>
+            A student pitch — Ethan Zhao, Risha Guha, Advik Garg, and Will Cheng — to build
+            a stable organization, run workshops for elementary schoolers, and develop
+            training for senior citizens.
+          </p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2023 / 24</span>
+          <h4>Building the curriculum</h4>
+          <p>
+            Foundation year: recruiting, subteams, and writing the Intro to Cybersecurity
+            deck from scratch — passwords, phishing, malware, the CIA triad — pitched at a
+            fourth grade reading level without being condescending.
+          </p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2024 / 25</span>
+          <h4>Into the classrooms</h4>
+          <p>
+            Assemblies across six Poway Unified elementary campuses, eventually reaching
+            48 fourth and fifth grade classes. In parallel, a separate workshop deck for
+            senior residence staff and the Teaching Cyber Safety Instructional Guide.
+          </p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">Summer 2025</span>
+          <h4>Beyond school walls</h4>
+          <p>
+            A free open workshop at 4S Ranch Library, and a summer camp that pulled
+            participants from outside California entirely — the first sign the material
+            travels.
+          </p>
+        </div>
+        <div class="tl-item now">
+          <span class="tl-year">2025 / 26</span>
+          <h4>Diversify</h4>
+          <p>
+            The Cybersecurity Expert Panel brings working professionals to Del Norte
+            students, and the year's theme pushes every program to reach an audience it
+            hasn't before.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="direction" class="reveal">
+      <p class="eyebrow">2025 / 26 direction</p>
+      <h2 class="h-lg">What "diversify" actually means.</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="h-md">Schools</h3>
+          <ul class="dim small" style="padding-left:18px;line-height:1.75">
+            <li>Reach past Poway Unified elementary: Rowe Elementary in September, plus middle schools and private schools.</li>
+            <li>More workshops in lower-income areas.</li>
+            <li>Rework lesson depth and offer more formats — pamphlets, a book, self-paced courses.</li>
+            <li>Condense the summer camp material for shorter sessions.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="h-md">Senior communities</h3>
+          <ul class="dim small" style="padding-left:18px;line-height:1.75">
+            <li>Teach at senior community events with booths and lightning sessions.</li>
+            <li>Add a dedicated digital literacy curriculum alongside cyber safety.</li>
+            <li>Get the Teaching Cyber Safety handbook into more hands.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="h-md">Visibility and funding</h3>
+          <ul class="dim small" style="padding-left:18px;line-height:1.75">
+            <li>Launch this website.</li>
+            <li>Grow social media with reels, an activity of the month, and event coverage.</li>
+            <li>Pursue corporate sponsorships and matching gifts.</li>
+            <li>Run student fundraisers around Club Rush.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="h-md">Member experience</h3>
+          <ul class="dim small" style="padding-left:18px;line-height:1.75">
+            <li>Tour the City of San Diego's Cyber Hub.</li>
+            <li>Build cyber games and actually play them at meetings.</li>
+            <li>Host an annual speaker event for the wider school.</li>
+            <li>Collaborate with other DNHS clubs on joint events.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <p class="eyebrow">Get involved</p>
+      <h2 class="h-lg">If you run a room full of people, we'd like to visit it.</h2>
+      <p class="lead">
+        Classrooms, libraries, community centers, senior residences — the workshop is free
+        and adapts to the audience. Tell us who we'd be talking to and how long we have.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:cyberceo.dnhs@gmail.com?subject=Workshop%20request%20for%20CyberCEO">Request a workshop</a>
+        <a class="btn btn-ghost" href="curriculum.html">See the curriculum first</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <h5>CyberCEO</h5>
+      <p class="small dim">Student-led cybersecurity outreach, based at Del Norte High School and aligned with the Information and Communication Technology CTE pathway.</p>
     </div>
-  </body>
+    <div>
+      <h5>Explore</h5>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="events.html">Events</a>
+      <a href="collaborations.html">Collaborations</a>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <a href="mailto:cyberceo.dnhs@gmail.com">cyberceo.dnhs@gmail.com</a>
+      <a href="https://www.instagram.com/dnhs_cyberceo/" rel="noopener">Instagram · @dnhs_cyberceo</a>
+      <a href="https://www.linkedin.com/" rel="noopener">LinkedIn · CyberCEO</a>
+    </div>
+    <div>
+      <h5>Meetings</h5>
+      <p class="small dim">Mondays at Del Norte High School during the school year. Online over the summer.</p>
+    </div>
+    <div class="colophon">
+      <span>© 2026 CyberCEO · cyberceo.us</span>
+      <span>Advisor: Mr. Mortensen</span>
+    </div>
+  </footer>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
 </html>

@@ -1,302 +1,231 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Collaborations · CyberCEO</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg: #0a0f1f;
-        --bg-2: #0e152d;
-        --panel: rgba(12, 18, 36, 0.86);
-        --panel-strong: rgba(14, 20, 42, 0.95);
-        --ink: #f4f7ff;
-        --muted: #9fb0d1;
-        --accent: #36f1ff;
-        --accent-2: #7b5bff;
-        --accent-3: #2cffb6;
-        --border: rgba(120, 150, 210, 0.22);
-        --shadow: 0 24px 60px rgba(2, 8, 25, 0.55);
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collaborations · CyberCEO</title>
+<meta name="description" content="The professionals who join our panels, the organizations we partner with, and concrete ways to work with CyberCEO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-      * {
-        box-sizing: border-box;
-      }
+<div class="page">
 
-      body {
-        margin: 0;
-        font-family: "IBM Plex Sans", system-ui, sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(700px 500px at 15% -10%, rgba(54, 241, 255, 0.18), transparent 60%),
-          radial-gradient(800px 600px at 85% 0%, rgba(123, 91, 255, 0.18), transparent 55%),
-          radial-gradient(900px 700px at 50% 100%, rgba(44, 255, 182, 0.12), transparent 60%),
-          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
-        min-height: 100vh;
-      }
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 40 40" fill="none" style="color:var(--brand)" aria-hidden="true">
+        <path d="M12 17v-4a8 8 0 0 1 16 0v4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <rect x="7.5" y="17" width="25" height="17" rx="4.5" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M13.5 30.5a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+        <circle cx="20" cy="24" r="2.6" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      <span>
+        <span class="brand-name">CyberCEO</span>
+        <span class="brand-tag">Securing the future</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="events.html">Events</a>
+      <a href="collaborations.html" aria-current="page">Collaborations</a>
+    </nav>
+  </header>
 
-      .page {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 48px 24px 96px;
-      }
+  <main id="main">
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 24px;
-        margin-bottom: 56px;
-      }
+    <section class="reveal">
+      <p class="eyebrow">Collaborations</p>
+      <h1 class="h-xl">Students can teach the basics. Professionals show what comes&nbsp;after.</h1>
+      <p class="lead">
+        We can explain what phishing is. We can't tell a room of sixteen-year-olds what
+        it's like to trace ransomware for a living. So we bring in people who can.
+      </p>
+    </section>
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
+    <section class="reveal">
+      <p class="eyebrow">Expert panel</p>
+      <h2 class="h-lg">Who joined us at Del Norte</h2>
+      <div class="grid grid-3">
 
-      .logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent-3));
-        box-shadow: var(--shadow);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .logo::after {
-        content: "";
-        position: absolute;
-        inset: 2px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-      }
-
-      .brand h1 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 28px;
-        margin: 0;
-        letter-spacing: 0.04em;
-      }
-
-      .brand span {
-        display: block;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--muted);
-      }
-
-      nav {
-        display: flex;
-        gap: 16px;
-        font-size: 14px;
-        color: var(--muted);
-      }
-
-      nav a {
-        color: inherit;
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
-        padding-bottom: 4px;
-        transition: color 200ms ease, border-color 200ms ease;
-      }
-
-      nav a:hover,
-      nav a[aria-current="page"] {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 32px;
-        align-items: center;
-        margin-bottom: 72px;
-      }
-
-      .hero h2 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: clamp(34px, 5vw, 52px);
-        margin: 0 0 16px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-
-      .hero-card {
-        background: var(--panel-strong);
-        border-radius: 22px;
-        padding: 28px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(14px);
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: rgba(54, 241, 255, 0.15);
-        color: var(--accent);
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 14px;
-      }
-
-      .section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 28px;
-        margin-bottom: 64px;
-      }
-
-      .section h3 {
-        font-family: "Orbitron", "IBM Plex Sans", sans-serif;
-        font-size: 26px;
-        margin: 0 0 12px;
-      }
-
-      .panel {
-        background: var(--panel);
-        border-radius: 20px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(16px);
-      }
-
-      .list {
-        display: grid;
-        gap: 12px;
-      }
-
-      .list-item {
-        background: rgba(22, 30, 58, 0.75);
-        border-radius: 16px;
-        padding: 14px 16px;
-        border: 1px solid rgba(120, 150, 210, 0.15);
-      }
-
-      .list-item h4 {
-        margin: 0 0 6px;
-        font-size: 17px;
-      }
-
-      .list-item p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .footer {
-        margin-top: 72px;
-        padding-top: 32px;
-        border-top: 1px solid rgba(120, 150, 210, 0.22);
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      @media (max-width: 700px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav {
-          flex-wrap: wrap;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <header>
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <h1>CyberCEO</h1>
-            <span>Securing the future</span>
-          </div>
-        </div>
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="team.html">Team</a>
-          <a href="curriculum.html">Curriculum</a>
-          <a href="events.html">Events</a>
-          <a href="collaborations.html" aria-current="page">Collaborations</a>
-        </nav>
-      </header>
-
-      <section class="hero">
-        <div>
-          <h2>Collaboration across sectors to prepare high school students.</h2>
-          <p>
-            Our panel and partnership model connects students with cybersecurity leaders from
-            education, industry, government, and nonprofit organizations.
+        <div class="card card-hover">
+          <div class="avatar" style="margin-bottom:16px" aria-hidden="true">Add photo</div>
+          <h3 class="h-md">David Tomasz</h3>
+          <p class="small" style="color:var(--brand-soft);margin-bottom:12px">
+            Intelligence Analyst · FBI San Diego Field Office
+          </p>
+          <p class="dim small">
+            Works in the FBI's San Diego cybercriminal squad, supporting investigations
+            across San Diego and Imperial County and tracking emerging threats. A
+            ransomware subject matter expert whose work has been briefed at the national
+            level. Previously Director of Research and Development at the Southeast Asia
+            Center, and taught international relations and comparative politics at Texas
+            State University.
           </p>
         </div>
-        <div class="hero-card">
-          <div class="tag">Panel Focus</div>
-          <p>
-            We highlight real-world career paths, practical problem solving, and the role of
-            cybersecurity in public service and private industry.
-          </p>
-        </div>
-      </section>
 
-      <section class="section">
-        <div class="panel">
-          <div class="tag">Partner Sectors</div>
-          <h3>Who we collaborate with</h3>
-          <div class="list">
-            <div class="list-item">
-              <h4>Education</h4>
-              <p>School districts, teachers, and CTE pathway leaders.</p>
-            </div>
-            <div class="list-item">
-              <h4>Industry</h4>
-              <p>Cybersecurity professionals, engineers, and analysts from local companies.</p>
-            </div>
-            <div class="list-item">
-              <h4>Public Sector</h4>
-              <p>Government and public safety partners focused on digital safety.</p>
-            </div>
-            <div class="list-item">
-              <h4>Nonprofits</h4>
-              <p>Community organizations that help us reach families and senior residents.</p>
-            </div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="tag">Panel Format</div>
-          <h3>Designed for student impact</h3>
-          <p>
-            Panels include moderated Q&amp;A, student-submitted questions, and a focus on real
-            incidents and ethical decision-making in cybersecurity.
+        <div class="card card-hover">
+          <div class="avatar" style="margin-bottom:16px" aria-hidden="true">Add photo</div>
+          <h3 class="h-md">Tricia Mercer</h3>
+          <p class="small" style="color:var(--brand-soft);margin-bottom:12px">
+            Chief People Officer · INDUS
           </p>
-          <div class="tag" style="margin-top: 16px;">Outcomes</div>
-          <p>
-            Students leave with clearer career pathways, an understanding of certifications,
-            and tangible steps they can take in high school to prepare for cyber careers.
+          <p class="dim small">
+            Leads talent, security, IT, and administration at INDUS after more than two
+            decades in the defense industry, including work as an information systems and
+            cybersecurity engineer on C4I systems. Serves on the boards of the San Diego
+            Cyber Center of Excellence and United Way of San Diego County.
           </p>
         </div>
-      </section>
 
-      <div class="footer">
-        Contact: cyerceo.dnhs@gmail.com · Instagram: @dnhs_cyberceo · Meetings: Mondays in DNHS
+        <div class="card card-hover">
+          <div class="avatar" style="margin-bottom:16px" aria-hidden="true">Add photo</div>
+          <h3 class="h-md">Victor Nzeata</h3>
+          <p class="small" style="color:var(--brand-soft);margin-bottom:12px">
+            Founder &amp; CEO · Cyber Brain Academy
+          </p>
+          <p class="dim small">
+            In 2016 became the U.S. Army Reserve's first graduate of the U.S. Army Cyber
+            School, and went on to lead defensive and offensive cyber teams. Now runs Cyber
+            Brain Academy, which provides cybersecurity training and certification prep,
+            and teaches as an adjunct professor at the University of San Diego.
+          </p>
+        </div>
+
       </div>
+      <p class="small dim" style="margin-top:20px">
+        Panel format: three segments — the threat landscape, career opportunities, and the
+        future of the field — with moderated and student-submitted questions throughout.
+      </p>
+    </section>
+
+    <section class="split reveal">
+      <div>
+        <p class="eyebrow">Partner sectors</p>
+        <h2 class="h-lg">Who we work with.</h2>
+        <p class="lead">
+          Reaching two thousand people takes more than a Monday club meeting. Every number
+          on this site exists because someone else opened a door.
+        </p>
+      </div>
+      <div class="card">
+        <dl class="deflist">
+          <div class="defrow"><dt>Education</dt><dd>School districts, individual teachers, and CTE pathway leads who host assemblies and staff training.</dd></div>
+          <div class="defrow"><dt>Industry</dt><dd>Cybersecurity professionals, engineers, and analysts who speak on panels and mentor members.</dd></div>
+          <div class="defrow"><dt>Public sector</dt><dd>Government and public safety partners working on digital safety, including the City of San Diego's Cyber Hub.</dd></div>
+          <div class="defrow"><dt>Community</dt><dd>Public libraries, senior residences, and nonprofits that connect us to families and older residents.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <p class="eyebrow">Work with us</p>
+      <h2 class="h-lg">Four concrete asks</h2>
+      <div class="grid grid-2">
+
+        <div class="card card-hover">
+          <h3 class="h-md">Speak on a panel</h3>
+          <p class="dim small">
+            One evening, three segments, and a room of high schoolers who will ask better
+            questions than you expect. Best fit: anyone working in security, from SOC
+            analyst to CISO to federal agent.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <h3 class="h-md">Host a site visit</h3>
+          <p class="dim small">
+            Show a group of students what a real security operation looks like. Nothing
+            sells the field like watching people do it.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <h3 class="h-md">Sponsor a season</h3>
+          <p class="dim small">
+            Workshops are free to every school and residence we visit, which means
+            materials, printing, and travel come out of fundraising. Corporate sponsorships
+            and employer matching go directly into programming.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <h3 class="h-md">Open a door</h3>
+          <p class="dim small">
+            An introduction to a principal, librarian, or residence director is often worth
+            more than a donation. Especially in neighborhoods that don't already have
+            programs like this.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="btn-row" style="margin-top:28px">
+        <a class="btn" href="mailto:cyberceo.dnhs@gmail.com?subject=Partnering%20with%20CyberCEO">Start a conversation</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/" rel="noopener">Find us on LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <p class="eyebrow">For students</p>
+      <h2 class="h-lg">What you get out of a panel.</h2>
+      <div class="grid grid-3">
+        <div>
+          <h3 class="h-md" style="font-size:17px">A map of the field</h3>
+          <p class="dim small">Which roles exist, what they actually do day to day, and which ones you'd be suited for.</p>
+        </div>
+        <div>
+          <h3 class="h-md" style="font-size:17px">Credential clarity</h3>
+          <p class="dim small">Which certifications matter, which degrees help, and where neither is required.</p>
+        </div>
+        <div>
+          <h3 class="h-md" style="font-size:17px">Something to do Monday</h3>
+          <p class="dim small">Concrete steps you can take in high school — competitions, labs, and clubs — instead of waiting for college.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <h5>CyberCEO</h5>
+      <p class="small dim">Student-led cybersecurity outreach, based at Del Norte High School and aligned with the Information and Communication Technology CTE pathway.</p>
     </div>
-  </body>
+    <div>
+      <h5>Explore</h5>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="events.html">Events</a>
+      <a href="collaborations.html">Collaborations</a>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <a href="mailto:cyberceo.dnhs@gmail.com">cyberceo.dnhs@gmail.com</a>
+      <a href="https://www.instagram.com/dnhs_cyberceo/" rel="noopener">Instagram · @dnhs_cyberceo</a>
+      <a href="https://www.linkedin.com/" rel="noopener">LinkedIn · CyberCEO</a>
+    </div>
+    <div>
+      <h5>Meetings</h5>
+      <p class="small dim">Mondays at Del Norte High School during the school year. Online over the summer.</p>
+    </div>
+    <div class="colophon">
+      <span>© 2026 CyberCEO · cyberceo.us</span>
+      <span>Advisor: Mr. Mortensen</span>
+    </div>
+  </footer>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
 </html>
