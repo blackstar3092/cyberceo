@@ -9,6 +9,27 @@
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Active nav link ----------
+     The aria-current attribute in the HTML is a no-JS fallback. This recomputes
+     it from the actual URL so the highlight can't drift out of sync when pages
+     get copied or renamed, and so "/" correctly matches index.html. */
+  function initCurrentNav() {
+    var nav = document.getElementById("primary-nav");
+    if (!nav) return;
+
+    var here = window.location.pathname.split("/").pop().toLowerCase();
+    if (!here) here = "index.html";              // served as "/" or "/subdir/"
+
+    Array.prototype.forEach.call(nav.querySelectorAll("a"), function (a) {
+      var href = (a.getAttribute("href") || "").split("/").pop().split(/[?#]/)[0].toLowerCase();
+      if (href && href === here) {
+        a.setAttribute("aria-current", "page");
+      } else {
+        a.removeAttribute("aria-current");
+      }
+    });
+  }
+
   /* ---------- Mobile nav ---------- */
   function initNav() {
     var toggle = document.querySelector(".nav-toggle");
@@ -373,8 +394,73 @@
     update();
   }
 
+  /* ---------- Lightbox ----------
+     Any <img class="zoomable"> opens full size. Caption is taken from the
+     enclosing <figcaption> if there is one, otherwise from the alt text. */
+  function initLightbox() {
+    var zoomables = document.querySelectorAll("img.zoomable");
+    if (!zoomables.length) return;
+
+    var box = document.createElement("div");
+    box.className = "lightbox";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.hidden = true;
+    box.innerHTML =
+      '<button class="lightbox-close" type="button" aria-label="Close image">Close</button>' +
+      '<img alt=""><figcaption></figcaption>';
+    document.body.appendChild(box);
+
+    var bigImg = box.querySelector("img");
+    var cap = box.querySelector("figcaption");
+    var closeBtn = box.querySelector(".lightbox-close");
+    var lastFocus = null;
+
+    function open(src, alt, caption) {
+      lastFocus = document.activeElement;
+      bigImg.src = src;
+      bigImg.alt = alt || "";
+      cap.textContent = caption || alt || "";
+      box.hidden = false;
+      box.classList.add("open");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function close() {
+      box.classList.remove("open");
+      box.hidden = true;
+      bigImg.removeAttribute("src");
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    Array.prototype.forEach.call(zoomables, function (img) {
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("role", "button");
+
+      function trigger() {
+        var fig = img.closest("figure");
+        var fc = fig ? fig.querySelector("figcaption") : null;
+        open(img.currentSrc || img.src, img.alt, fc ? fc.textContent.trim() : "");
+      }
+
+      img.addEventListener("click", trigger);
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); trigger(); }
+      });
+    });
+
+    closeBtn.addEventListener("click", close);
+    box.addEventListener("click", function (e) { if (e.target === box) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && box.classList.contains("open")) close();
+    });
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
+    initCurrentNav();
     initNav();
     initScroll();
     initReveal();
@@ -383,6 +469,7 @@
     initFlips();
     initPasswordLab();
     initPhishHunt();
+    initLightbox();
   }
 
   if (document.readyState === "loading") {
